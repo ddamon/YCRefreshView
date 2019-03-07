@@ -34,8 +34,8 @@ public class SevenStaggeredGridActivity extends AppCompatActivity {
         recyclerView = (YCRefreshView) findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.VERTICAL));
         recyclerView.setAdapter(adapter = new ImageAdapter(this));
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,4);
-        gridLayoutManager.setSpanSizeLookup(adapter.obtainGridSpanSizeLookUp(4));
+        StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL);
+//        gridLayoutManager.setSpanSizeLookup(adapter.obtainGridSpanSizeLookUp(4));
         recyclerView.setLayoutManager(gridLayoutManager);
         adapter.addHeader(new RecyclerArrayAdapter.ItemView() {
             @Override
