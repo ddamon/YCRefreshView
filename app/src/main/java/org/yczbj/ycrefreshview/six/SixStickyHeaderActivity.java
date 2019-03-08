@@ -61,8 +61,8 @@ public class SixStickyHeaderActivity extends AppCompatActivity implements Recycl
                 return new PersonViewHolder(parent);
             }
         });
-        adapter.setMore(R.layout.view_more, this);
-        adapter.setNoMore(R.layout.view_nomore, new RecyclerArrayAdapter.OnNoMoreListener() {
+        adapter.setMore(this);
+        adapter.setNoMore(new RecyclerArrayAdapter.OnNoMoreListener() {
             @Override
             public void onNoMoreShow() {
                 adapter.resumeMore();
@@ -80,7 +80,7 @@ public class SixStickyHeaderActivity extends AppCompatActivity implements Recycl
                 return true;
             }
         });
-        adapter.setError(R.layout.view_error, new RecyclerArrayAdapter.OnErrorListener() {
+        adapter.setError(new RecyclerArrayAdapter.OnErrorListener() {
             @Override
             public void onErrorShow() {
                 adapter.resumeMore();

@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
@@ -14,8 +13,8 @@ import android.view.ViewGroup;
 import com.yc.cn.ycbannerlib.first.BannerView;
 import com.yc.cn.ycbannerlib.first.hintview.ColorPointHintView;
 
-import org.yczbj.ycrefreshview.other.DataProvider;
 import org.yczbj.ycrefreshview.R;
+import org.yczbj.ycrefreshview.other.DataProvider;
 import org.yczbj.ycrefreshview.other.Utils;
 import org.yczbj.ycrefreshview.second.BannerAdapter;
 import org.yczbj.ycrefreshviewlib.YCRefreshView;
@@ -70,7 +69,6 @@ public class SevenStaggeredGridActivity extends AppCompatActivity {
 
             }
         });
-        adapter.setNoMore(R.layout.view_nomore);
         recyclerView.setRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

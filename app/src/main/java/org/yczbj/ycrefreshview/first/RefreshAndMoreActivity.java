@@ -7,7 +7,6 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,19 +15,17 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 
-
-import org.yczbj.ycrefreshview.other.DataProvider;
 import org.yczbj.ycrefreshview.R;
-import org.yczbj.ycrefreshview.other.Utils;
+import org.yczbj.ycrefreshview.other.DataProvider;
 import org.yczbj.ycrefreshview.other.Person;
+import org.yczbj.ycrefreshview.other.Utils;
 import org.yczbj.ycrefreshviewlib.YCRefreshView;
-import org.yczbj.ycrefreshviewlib.item.RecycleViewItemLine;
-import org.yczbj.ycrefreshviewlib.swipeMenu.OnSwipeMenuListener;
-import org.yczbj.ycrefreshviewlib.viewHolder.BaseViewHolder;
 import org.yczbj.ycrefreshviewlib.adapter.RecyclerArrayAdapter;
+import org.yczbj.ycrefreshviewlib.item.RecycleViewItemLine;
+import org.yczbj.ycrefreshviewlib.viewHolder.BaseViewHolder;
 
 
-public class RefreshAndMoreActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener{
+public class RefreshAndMoreActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
 
     private YCRefreshView recyclerView;
     private FloatingActionButton top;
@@ -50,7 +47,7 @@ public class RefreshAndMoreActivity extends AppCompatActivity implements SwipeRe
 
 
         final RecycleViewItemLine line = new RecycleViewItemLine(this, LinearLayout.HORIZONTAL,
-                (int)Utils.convertDpToPixel(1,this), Color.GRAY);
+                (int) Utils.convertDpToPixel(1, this), Color.GRAY);
         recyclerView.addItemDecoration(line);
 
         recyclerView.setAdapterWithProgress(adapter = new RecyclerArrayAdapter<Person>(this) {
@@ -59,7 +56,7 @@ public class RefreshAndMoreActivity extends AppCompatActivity implements SwipeRe
                 return new PersonViewHolder(parent);
             }
         });
-        adapter.setMore(R.layout.view_more, new RecyclerArrayAdapter.OnLoadMoreListener() {
+        adapter.setMore(new RecyclerArrayAdapter.OnLoadMoreListener() {
             @Override
             public void onLoadMore() {
                 handler.postDelayed(new Runnable() {
@@ -76,7 +73,7 @@ public class RefreshAndMoreActivity extends AppCompatActivity implements SwipeRe
                 }, 2000);
             }
         });
-        adapter.setNoMore(R.layout.view_nomore, new RecyclerArrayAdapter.OnNoMoreListener() {
+        adapter.setNoMore(new RecyclerArrayAdapter.OnNoMoreListener() {
             @Override
             public void onNoMoreShow() {
                 adapter.pauseMore();
@@ -94,7 +91,7 @@ public class RefreshAndMoreActivity extends AppCompatActivity implements SwipeRe
                 return true;
             }
         });
-        adapter.setError(R.layout.view_error, new RecyclerArrayAdapter.OnErrorListener() {
+        adapter.setError(new RecyclerArrayAdapter.OnErrorListener() {
             @Override
             public void onErrorShow() {
                 adapter.resumeMore();
@@ -131,7 +128,7 @@ public class RefreshAndMoreActivity extends AppCompatActivity implements SwipeRe
                     return;
                 }
                 adapter.addAll(DataProvider.getPersonList(page));
-                page=1;
+                page = 1;
             }
         }, 2000);
     }

@@ -25,7 +25,7 @@ public class FiveMultiStyleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_refresh_view);
         recyclerView = (YCRefreshView) findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setProgressView(R.layout.view_progress);
+        recyclerView.setProgressView(R.layout.view_custom_loading_data);
         DividerViewItemLine itemDecoration = new DividerViewItemLine(Color.GRAY, SizeUtil.dip2px(this,0.5f), SizeUtil.dip2px(this,72),0);
         recyclerView.addItemDecoration(itemDecoration);
         adapter = new PersonWithAdAdapter(this);

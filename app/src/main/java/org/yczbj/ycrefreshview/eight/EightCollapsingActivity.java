@@ -43,7 +43,7 @@ public class EightCollapsingActivity extends AppCompatActivity {
         recyclerView = (YCRefreshView) findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter = new PersonAdapter(this));
-        adapter.setMore(R.layout.view_more, new RecyclerArrayAdapter.OnLoadMoreListener() {
+        adapter.setMore(new RecyclerArrayAdapter.OnLoadMoreListener() {
             @Override
             public void onLoadMore() {
                 handler.postDelayed(new Runnable() {
